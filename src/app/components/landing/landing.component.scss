@@ -1,0 +1,27 @@
+
+:host {
+    flex: 1;
+  }
+  
+.landing-container{
+display: flex;
+
+background-color: rgba(0, 0, 0, 0.1);
+
+height: 100vh;
+
+}
+
+.landing-welcom{
+  margin-top: 20px;
+  display: flex;
+  width: 70%;
+  justify-content: center;
+  
+ 
+}
+.channels-container{
+  background-color: rgb(147, 147, 144);
+  margin-top: 0px;
+}
+

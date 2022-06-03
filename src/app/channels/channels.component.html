@@ -1,0 +1,23 @@
+
+
+<div class="channel-content">
+
+  <div class="channels">
+<input type="text" [(ngModel)]="channel.name">
+
+<button class="button" (click)="addChannel()" >Erstellen</button>
+
+<div class="text"  *ngFor="let channel of channels;  let i = index">
+
+  <a  routerLink="/channel/ + {{channel.channelChatId}}">
+    <span > {{ channel.name }}</span>
+  </a>  
+
+
+</div>
+</div>
+  
+
+</div>
+
+

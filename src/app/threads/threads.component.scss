@@ -1,0 +1,75 @@
+:host {
+    flex: 1;
+  }
+
+  form{
+   
+    display: flex;
+  
+}
+  
+
+
+.chat{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 16px;
+    background-color: #e4e4e4;
+    box-shadow: 0 1px 10px white;
+    margin-top: 15px;
+    height: 200px;
+    justify-content: space-between;
+
+}
+
+.text{
+    font-family: monospace;
+    font-size: larger;
+    text-align: center;
+    width: 100px;
+    background: rgb(147, 147, 144);
+    border-radius: 10px;
+
+  
+}
+
+.form-contant{
+    flex-direction: column;
+    padding: 10px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 16px;
+    background-color: #e4e4e4;
+    box-shadow: 0 1px 10px white;
+    margin-top: 15px;
+    height: 70px;
+    justify-content: space-between;
+}
+
+.send-btn{
+    background-color: #2578f4;
+    color: white;
+    border-radius: 12px;
+
+    height: 40px;
+    font-size: larger;
+    text-align: center;
+}
+
+.text-input{
+    border: unset;
+    border: none;
+    width: 100%;
+    background-color: #e4e4e4;
+    height: 100%;
+    
+    }

@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: monospace;
+  background-color: rgb(30, 128, 193) ; 
+ 
+}
+
+
+
+.full-Width {
+  width: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.margin-top {
+  margin-top: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+}
+
+.button {
+  background-color:rgb(4, 54, 255);
+
+  color: white;
+  padding: 6px;
+  margin: 15px;
+  font-size: large;
+  border-radius: 10px;
+  box-shadow: 0 1px 10px rgb(255, 255, 255);
+  cursor: pointer;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border: unset;
+
+  &:hover {
+    transform: translate(0rem, -0.1rem);
+  }
+}

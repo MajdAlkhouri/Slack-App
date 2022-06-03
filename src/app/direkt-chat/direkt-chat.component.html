@@ -1,0 +1,18 @@
+
+
+<h1>Direkt Messages</h1>
+
+<ng-container *ngIf="authService.currentUser$ | async as user">
+    <div class="user">
+        <mat-icon>message</mat-icon>
+      <span>{{ user.displayName }}</span>
+
+      <span> {{ chat.author }} </span>
+    </div>
+
+    <div class="para">
+      Nachricht an  {{ data }}
+  </div>
+
+</ng-container>
+

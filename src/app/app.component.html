@@ -1,0 +1,25 @@
+<mat-toolbar>
+  <span>Slack Clone</span>
+
+  <ng-container *ngIf="authService.currentUser$ | async as user">
+    <div class="user">
+      <mat-icon>account_circle</mat-icon>
+      <span>{{ user.displayName }}</span>
+    </div>
+    <button mat-button (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </ng-container>
+</mat-toolbar>
+
+
+
+  <router-outlet ></router-outlet>
+
+  
+
+
+<!--
+
+-->

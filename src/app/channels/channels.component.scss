@@ -1,0 +1,41 @@
+
+.channel-content{
+    display: flex;
+  
+}
+
+.channels{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+input{
+    margin: 16px;
+}
+
+.text{
+    font-family: monospace;
+    font-size: x-large;
+    text-align: center;
+    width: 225px;
+    height: 45px;
+    background-color:rgb(4, 54, 255);
+    box-shadow: 0 1px 10px rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 15px;
+
+    span{
+        color: white;
+    }
+
+    a{
+        text-decoration: none;
+    }
+}
+
