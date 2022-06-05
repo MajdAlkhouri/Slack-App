@@ -70,11 +70,11 @@
 
 
 <!-- Response -->
-
-<div style="margin-top: 80px;"  *ngIf="showchatt == true" class="chat">
-  <span *ngIf="authService.currentUser$ | async as user" class="text">{{ user.displayName }}</span>
-  <p>{{this.send_message}}</p>
-
+<div *ngFor="let thread of threads">
+<div  style="margin-top: 80px;"   class="chat"  >
+  <span *ngIf="authService.currentUser$ | async as user" class="text">{{ thread.author }}</span>
+  <p>{{thread.message}}</p>
+</div>
 
   <!-- <div class="form-contant"> -->
     <!-- <form #messageForm="ngForm">

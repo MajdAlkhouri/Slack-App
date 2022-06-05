@@ -107,8 +107,8 @@ export class ChatsComponent implements OnInit {
 
 
     this.isShowingThread = true;
-    console.log("Status: ", this.isShowingThread);
-    this.temp = Math.random();
+   
+    this.temp = Math.random(); //!! nicht verstanden
     console.log("Random Number: ", this.temp);
 
 

@@ -58,6 +58,7 @@ export class ThreadsComponent implements OnInit, OnChanges {
    )
    .valueChanges({ idField: 'customIdName' })
    .subscribe((changes: any) => {
+     console.log('changes: ', changes);
      this.threads = changes;
      this.thread_placeholder = this.thread.author;
    });
@@ -66,14 +67,20 @@ export class ThreadsComponent implements OnInit, OnChanges {
   sendMessage(text_value: any) {
     this.firestore.collection('threads').add(
       {
+        message:text_value,
+        author: this.thread.author,
         chatID : this.thread,
-        message: "hhfd",
+        chatChannelId: this.channelId,
 
       }
     )
     this.send_message = text_value;
     console.log("Entered Value: ", this.send_message );
-
+  //  this.clearChannel();
     this.showchatt = true;
+  }
+
+  clearChannel() {
+    this.chat = new Chat();
   }
 }
