@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { Chat } from 'src/models/chats.class';
+import { Chat } from 'src/app/models/chats.class';
 import { threadId } from 'worker_threads';
 import { AuthenticationService } from '../services/authentication.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ThreadService } from '../services/thread.service';
+import { ImageUploadService } from '../services/image-upload.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-chats',
@@ -19,18 +21,18 @@ export class ChatsComponent implements OnInit {
 
   public popoverTitle = 'löschen ? ';
   public currentThread!: any; //wenn es gibt dann zeig es mir
-  // public currentThread: any = [];
+
 
   public confirmClicked: boolean = false;
   public cancelClicked: boolean = false;
-
+  user$ = this.usersService.currentUserProfile$;
   chat = new Chat();
   channelId: any = '';
   chats: any = ([] = []);
   editMessage!: string;
   showAddContainer: boolean = false;
   isShowingThread: boolean = false;
-  filePath: String;
+  filePath: File;
   temp: number;
 
   constructor(
@@ -40,14 +42,12 @@ export class ChatsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private afStorage: AngularFireStorage,
     public  threadService: ThreadService,
+    public imageUpload : ImageUploadService,
+    public usersService: UsersService,
   ) {}
 
   ngOnInit(): void {
-    // this.firestore.collection('chats')
-    // .valueChanges({ idField: 'customIdName' })//wenn etwas ändert
-    // .subscribe((changes: any) => { //daten holen
-    //   this.chats = changes; // changes in array channels pushen
-    // })
+
 
     this.activatedRoute.paramMap.subscribe((param) => {
       this.channelId = param.get('id');
@@ -56,22 +56,46 @@ export class ChatsComponent implements OnInit {
         .collection('chats', (ref) =>
           ref.where('chatChannelId', '==', this.channelId)
         )
-        .valueChanges({ idField: 'customIdName' })
-        .subscribe((changes: any) => {
-          this.chats = changes;
+        .valueChanges({ idField: 'customIdName' })//wenn etwas ändert
+        .subscribe((changes: any) => { //daten holen
+          this.chats = changes;// changes in array channels pushen
         });
     });
   }
 
   sendMessage() {
-    let userName = this.authService.currentUser.displayName;
-    this.firestore.collection('chats').add({
-      message: this.chat.message,
-      author: userName,
-      chatChannelId: this.channelId,
-    });
+
+    if(this.filePath){
+      this.imageUpload.uploadImage(this.filePath, '/images' + Math.random() + this.filePath.name ).subscribe(downloadURL =>{
+          this.filePath = undefined;
+          this.sendMessage2(downloadURL);
+      });
+    }else{
+      this.sendMessage2();
+    }
+  }
+
+  sendMessage2(fileURL?){
+    let userName = this.usersService.currentUserProfile$;
+    let newMessage;
+    if(fileURL){
+      newMessage = {
+        message: this.chat.message,
+        author: userName,
+        chatChannelId: this.channelId,
+        fileURL : fileURL
+      }
+    }else{
+      newMessage = {
+        message: this.chat.message,
+        author: userName,
+        chatChannelId: this.channelId,
+      }
+    }
+    
+    this.firestore.collection('chats').add(newMessage);
     this.clearChannel();
-    this.isShowingThread = false; // damit thrad geschloosen wird
+    this.isShowingThread = false; // damit thread geschloosen wird
   }
 
   clearChannel() {
@@ -115,23 +139,11 @@ export class ChatsComponent implements OnInit {
 
     this.threadService.currentThread= this.channelId;
 
-    //this.firestore
-    // .collection('threads', ref => ref.where('chatChannelId', '==', this.channelId))
-    //  .valueChanges({ idField: 'customIdName' })
-    // .subscribe((threads: any) => {
-
-    // })
   }
 
   upload(event) {
     this.filePath = event.target.files[0];
   }
 
-  uploadImage() {
-    console.log(this.filePath);
-    this.afStorage.upload(
-      '/images' + Math.random() + this.filePath,
-      this.filePath
-    );
-  }
+  
 }

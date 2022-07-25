@@ -12,6 +12,8 @@ body {
 }
 
 
+   
+
 
 .full-Width {
   width: 100%;
@@ -35,21 +37,23 @@ body {
   width: 100%;
 }
 
-.button {
-  background-color:rgb(4, 54, 255);
+.popover{
+  
+  position: absolute!important;
+  top: 0px!important;
+  left: 0px!important;
+  will-change: transform!important;
+ 
 
-  color: white;
-  padding: 6px;
-  margin: 15px;
-  font-size: large;
-  border-radius: 10px;
-  box-shadow: 0 1px 10px rgb(255, 255, 255);
-  cursor: pointer;
-
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
-  border: unset;
-
-  &:hover {
-    transform: translate(0rem, -0.1rem);
-  }
+ 
 }
+
+.mat-typography h3 {
+  margin: 0px !important;
+}
+.popover-body{
+  padding: 5px !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family:Roboto, "Helvetica Neue", sans-serif; }

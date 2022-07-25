@@ -18,7 +18,6 @@ import { CommonModule } from '@angular/common';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { HotToastModule } from '@ngneat/hot-toast';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
@@ -33,12 +32,19 @@ import { ChannelsComponent } from './channels/channels.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { DirektChatComponent } from './direkt-chat/direkt-chat.component';
 import { ThreadsComponent } from './threads/threads.component';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AuthenticationService } from './services/authentication.service';
+import { ProfileComponent } from './components/profile/profile.component';
+import { provideStorage ,getStorage} from '@angular/fire/storage';
+import { DialogAddChannelComponent } from './dialog-add-channel/dialog-add-channel.component';
+import { DateDisplayPipe } from './pipes/date-display.pipe';
 
-
+import { DatePipe } from '@angular/common';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -50,19 +56,20 @@ import { AuthenticationService } from './services/authentication.service';
     LandingComponent,
     SignUpComponent,
     HomeComponent,
-
     ChatsComponent,
     ChannelsComponent,
     DirektChatComponent,
-    ThreadsComponent
+    ThreadsComponent,
+    ProfileComponent,
+    DialogAddChannelComponent,
+    DateDisplayPipe,
+
     ],
   imports: [
     AngularFireStorageModule,
     AngularFireModule,
     AngularFireAuthModule,
-    ConfirmationPopoverModule.forRoot({
-      confirmButtonType: 'danger',
-    }),
+   
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -78,7 +85,9 @@ import { AuthenticationService } from './services/authentication.service';
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+    provideFirestore(() => getFirestore()),
     HotToastModule.forRoot(),
     MatMenuModule,
     MatSliderModule,
@@ -87,14 +96,19 @@ import { AuthenticationService } from './services/authentication.service';
     MatDialogModule,
     MatProgressBarModule,
     MatDatepickerModule,
-
-
-
+    MatAutocompleteModule,
+    MatListModule,
+    MatInputModule,
+    MatFormFieldModule,
+   
+    MatDividerModule,
 
 
   ],
 
-  providers: [AuthenticationService],
+  providers: [AuthenticationService,DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+

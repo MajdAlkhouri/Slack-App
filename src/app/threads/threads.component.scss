@@ -7,23 +7,45 @@
     display: flex;
   
 }
+
+
+.form-contant {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 2px solid #cccccc;
+    height: 144px;
+    width: 95%;
+    margin-left: 22px;
+    margin-right: auto;
+    border-radius: 8px;
+    box-shadow: 0 0px 3px #b3b3b3;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+  
+
+
+.allThread{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
   
 
 
 .chat{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    border: 2px solid black;
-    margin-bottom: 20px;
-    width: 90%;
+    padding: 3px;
+    margin-bottom: 2px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 16px;
-    background-color: #e4e4e4;
     box-shadow: 0 1px 10px white;
-    margin-top: 15px;
-    height: 200px;
+    margin-top: 10px;
     justify-content: space-between;
 
 }
@@ -33,43 +55,26 @@
     font-size: larger;
     text-align: center;
     width: 100px;
-    background: rgb(147, 147, 144);
+
     border-radius: 10px;
 
   
 }
 
-.form-contant{
-    flex-direction: column;
-    padding: 10px;
-    border: 2px solid black;
-    margin-bottom: 20px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 16px;
-    background-color: #e4e4e4;
-    box-shadow: 0 1px 10px white;
-    margin-top: 15px;
-    height: 70px;
-    justify-content: space-between;
-}
+
 
 .send-btn{
-    background-color: #2578f4;
-    color: white;
+   
     border-radius: 12px;
 
-    height: 40px;
+    color: #e4e4e4;
     font-size: larger;
     text-align: center;
 }
 
 .text-input{
-    border: unset;
-    border: none;
     width: 100%;
-    background-color: #e4e4e4;
+    border: none;
+    outline: none;
     height: 100%;
-    
     }

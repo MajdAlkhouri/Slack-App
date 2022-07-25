@@ -1,8 +1,9 @@
 
 mat-toobar{
   width: 100%;
+ 
     justify-content: space-between;
-    background-color: rgb(4, 54, 255);
+   
 
 }
 
@@ -22,6 +23,16 @@ mat-toobar{
 
 
 
+mat-toolbar {
+  justify-content: space-between;
+}
+
+.profile-image-toolbar {
+  border-radius: 100%;
+  margin-right: 8px;
+}
+
+
   
   .logo-container {
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
@@ -37,10 +48,14 @@ mat-toolbar-row {
   justify-content: space-between;
   align-items: center;
   min-height: 56px;
-  height: 56px;
-  background-color: rgb(4, 54, 255);
+  height: 66px;
+  background-color: rgb(62, 14, 63);
 }
 
+.profile-image-toolbar{
+  border-radius: 100%;
+  margin-right: 8px;
+}
 .menu-items {
   list-style-type: none;
   padding: 0px;

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
-import { Chat } from 'src/models/chats.class';
+import { UsersService } from './services/users.service';
 
 @Component({
   selector: 'app-root',
@@ -11,20 +9,20 @@ import { Chat } from 'src/models/chats.class';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
-
   title(title: any) {
     throw new Error('Method not implemented.');
   }
+  user$ = this.usersService.currentUserProfile$;
+
   constructor(
-    public authService: AuthenticationService,
-    public router: Router,
-    public dialog: MatDialog
+    private authService: AuthenticationService,
+    private router: Router,
+    private usersService: UsersService
   ) {}
 
   logout() {
     this.authService.logout().subscribe(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['']);
     });
   }
 }

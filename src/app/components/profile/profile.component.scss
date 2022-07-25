@@ -1,0 +1,40 @@
+.profile-container{
+    width: 100%;
+   
+    display:flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+.profile-image {
+    position: relative;
+    width: 120px;
+    margin: auto;
+  }
+  
+  .profile-image > img {
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .profile-image > button {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+  }
+  
+  .form-container {
+    max-width: 600px;
+    width: 600px;
+    margin-top: 100px;
+    background-color: rgb(213, 205, 205);
+    border-radius: 10px;
+    }
+  
+  .row {
+    display: flex !important;
+    gap: 16px;
+    
+  }

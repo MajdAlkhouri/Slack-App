@@ -1,49 +1,28 @@
-<div class="login-page">
-<div class="login-content">
- <div class="form-container mat-elevation-z5">
 
+
+<div class="form-container mat-elevation-z5">
   <h1>Login</h1>
-
- <form class="form-container" [formGroup]="loginForm" (ngSubmit)="submit()">
-   <mat-form-field>
-     <input matInput placeholder="Email adresse" formControlName="email" />
-     <mat-error *ngIf="email?.errors?.['email']">
-       Please enter a correct email format
-     </mat-error>
-   </mat-form-field>
-
-   <mat-form-field>
-    <input matInput placeholder=" Password" formControlName="password" type="password" />
-  </mat-form-field>
-<div class="center margin-top">
-  <button mat-raised-button class="LOGIN-BTN" type="submit">Login</button>
-</div>
-
-<span class="center margin-top"> New to Slack? <a class="sign-up-link" routerLink="/Signup">Sign Up!</a></span>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <mat-form-field>
+          <input matInput placeholder="Email address" formControlName="email" />
+          <mat-error *ngIf="email?.errors?.['required']">
+              Email is required
+          </mat-error>
+          <mat-error *ngIf="email?.errors?.['email']">
+              Please enter a correct email format
+          </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Password" formControlName="password" type="password" />
+          <mat-error *ngIf="password?.errors?.['required']">
+              Password is required
+          </mat-error>
+      </mat-form-field>
+      <div class="center margin-top">
+          <button mat-raised-button color="primary" type="submit">
+              Login
+          </button>
+      </div>
+      <span class="center margin-top">New to our platform? <a class="sign-up-link" routerLink="/sign-up">Sign Up!</a></span>
   </form>
-
- </div>
-
 </div>
-
-</div>
- <!--
-    openDialog(){
-    const dialogRef =  this.dialog.open(OverlayComponentComponent);
-
-    dialogRef.afterClosed().subscribe((channelName: any) => {
-      console.log('The dialog was closed', channelName);
-      if (channelName && channelName.length > 0) {
-        const newChanel = new Chat();
-        newChanel.name = channelName;
-        newChanel.timeStamp = new Date().getTime();
-        this.firestore.collection('chats')
-          .add(newChanel.toJson())
-          .then((chat: any) => {
-            this.router.navigateByUrl('/chats/' + chat.id)
-          });
-      }
-    });
-  }
-
--->

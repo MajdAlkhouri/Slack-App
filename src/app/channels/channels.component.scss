@@ -1,41 +1,85 @@
+.channel-content {
+  display: flex;
+  width: 270px;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
 
-.channel-content{
-    display: flex;
-  
+  h1 {
+    font-family: "Circular-Loom";
+    color: white;
+    font-size: 25px;
+  }
 }
 
-.channels{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 300px;
+.button {
+  background-color: #5a175c;
+  color: white;
+  padding: 2px;
+
+  height: 30px;
+  font-size: large;
+  border-radius: 10px;
+  box-shadow: 0 0px 7px white;
+  cursor: pointer;
+
+  border: unset;
+
+  &:hover {
+    transform: translate(0rem, -0.1rem);
+  }
 }
 
-input{
-    margin: 16px;
+.arrow-button {
+  background-color: #5a175c;
+  color: white;
+  padding: 2px;
+
+  font-size: large;
+  border-radius: 10px;
+  box-shadow: 0 0px 7px white;
+  cursor: pointer;
+
+  border: unset;
+
+  &:hover {
+    transform: translate(0rem, -0.1rem);
+  }
 }
 
-.text{
-    font-family: monospace;
-    font-size: x-large;
-    text-align: center;
-    width: 225px;
-    height: 45px;
-    background-color:rgb(4, 54, 255);
-    box-shadow: 0 1px 10px rgb(255, 255, 255);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    margin-bottom: 15px;
-
-    span{
-        color: white;
-    }
-
-    a{
-        text-decoration: none;
-    }
+.channels {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  margin-left: -25px;
 }
 
+input {
+  margin: 6px;
+}
+
+.text {
+  font-family: monospace;
+  font-size: x-large;
+  text-align: center;
+  width: 225px;
+  height: 45px;
+
+  box-shadow: 0 1px 10px rgb(255, 255, 255);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 15px;
+
+  span {
+    color: white;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

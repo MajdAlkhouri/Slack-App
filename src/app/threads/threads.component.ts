@@ -2,8 +2,8 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { collection } from 'firebase/firestore';
-import { Chat } from 'src/models/chats.class';
-import { Threads } from 'src/models/threads.class';
+import { Chat } from 'src/app/models/chats.class';
+
 import { AuthenticationService } from '../services/authentication.service';
 import { ThreadService } from '../services/thread.service';
 

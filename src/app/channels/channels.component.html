@@ -1,23 +1,65 @@
 
 
 <div class="channel-content">
+ 
 
   <div class="channels">
-<input type="text" [(ngModel)]="channel.name">
 
-<button class="button" (click)="addChannel()" >Erstellen</button>
+<div>
+<button *ngIf="showChannels" class="arrow-button" (click)="HideChannels()" >
+  <span class="material-icons">
+    arrow_drop_down
+    </span>
+</button>
 
-<div class="text"  *ngFor="let channel of channels;  let i = index">
-
-  <a  routerLink="/channel/ + {{channel.channelChatId}}">
-    <span > {{ channel.name }}</span>
-  </a>  
-
-
+<button *ngIf="showButton" class="arrow-button"  (click)="ShowChannels()">
+  <span   class="material-icons">
+    arrow_right
+    </span>
+  </button>
+  
 </div>
+   
+
+
+    <h1>Channels</h1>
+<button class="button"   (click)="addChannel()" >
+  <mat-icon >add</mat-icon>
+</button>
+
 </div>
   
+<div *ngIf="showChannels"> 
+<div    class="text" *ngFor="let channel of channels;  let i = index" >
+
+  <a  routerLink="/channel/ + {{channel.channelChatId}}">
+    <span ># {{ channel.name }}</span>
+  </a>  
+</div>
 
 </div>
 
+</div>
+
+<!--
+   openDialog(): void {
+    
+    const dialogRef = this.dialog.open(DialogAddChannelComponent);
+ 
+    
+    dialogRef.afterClosed().subscribe((channel: string) => {
+      if (channel && channel.length > 0) {
+        console.log(this.channel.name);
+        this.firestore.collection('channels')//collection erstellen 
+    .add(this.channel.toJson())// in json umwandeln
+    .then((result: any) => {
+      console.log(result)
+      console.log(this.channel.name);
+    })
+    this.clearChannel();
+      }
+      
+    });
+  }
+-->
 
