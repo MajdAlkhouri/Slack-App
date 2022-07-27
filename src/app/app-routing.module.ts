@@ -5,7 +5,6 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 
-
 import { ChatsComponent } from './chats/chats.component';
 
 import { AppComponent } from './app.component';
@@ -13,23 +12,16 @@ import { ChannelsComponent } from './channels/channels.component';
 import { ThreadsComponent } from './threads/threads.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
-
 import {
   canActivate,
   redirectLoggedInTo,
   redirectUnauthorizedTo,
-} from '@angular/fire/auth-guard';
-
-
+} from '@angular/fire/compat/auth-guard';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 
 const routes: Routes = [
-  
-  
-  
-  
   {
     path: 'home',
     component: HomeComponent,
@@ -41,7 +33,7 @@ const routes: Routes = [
     ...canActivate(redirectUnauthorizedToLogin),
   },
 
-    {
+  {
     path: '',
     component: LogInComponent,
   },
@@ -51,9 +43,7 @@ const routes: Routes = [
     component: LogInComponent,
   },
 
-  
-  { path: 'threads',
-   component: ThreadsComponent },
+  { path: 'threads', component: ThreadsComponent },
 
   {
     path: 'sign-up',
@@ -76,9 +66,6 @@ const routes: Routes = [
 
   { path: 'allChat', component: ChatsComponent },
 ];
-
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
