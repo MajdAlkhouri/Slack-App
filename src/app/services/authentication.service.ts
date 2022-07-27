@@ -1,41 +1,34 @@
 import { Injectable } from '@angular/core';
-import {
-  Auth,
-  authState,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  updateProfile,
-  UserInfo,
-} from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { concatMap, from, Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  currentUser : any 
-  currentUser$ = authState(this.auth);  
+  currentUser: any;
+  currentUser$ = this.auth.user;
 
-  constructor(private auth: Auth) {}
+  constructor(private auth: AngularFireAuth) {}
 
   login(username: string, password: string) {
-    return from(signInWithEmailAndPassword(this.auth, username, password));
+    return from(this.auth.signInWithEmailAndPassword(username, password));
   }
 
   signUp(email: string, password: string) {
-    return from(createUserWithEmailAndPassword(this.auth, email, password));
+    return from(this.auth.createUserWithEmailAndPassword(email, password));
   }
 
-  updateProfileData(profileData: Partial<UserInfo>): Observable<any> {
-    const user = this.auth.currentUser;
-    return of(user).pipe(
-      concatMap((user) => {
-        if (!user) throw new Error('Not Authenticated');
+  // updateProfileData(profileData: Partial<UserInfo>): Observable<any> {
+  //   const user = this.auth.currentUser;
+  //   return of(user).pipe(
+  //     concatMap((user) => {
+  //       if (!user) throw new Error('Not Authenticated');
 
-        return updateProfile(user, profileData);
-      })
-    );
-  }
+  //       return updateProfile(user, profileData);
+  //     })
+  //   );
+  // }
 
   logout() {
     return from(this.auth.signOut());

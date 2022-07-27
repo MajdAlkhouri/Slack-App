@@ -15,39 +15,30 @@ import { LandingComponent } from './components/landing/landing.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HomeComponent } from './components/home/home.component';
 import { CommonModule } from '@angular/common';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
 import { HotToastModule } from '@ngneat/hot-toast';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatCardModule} from '@angular/material/card';
-import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ChatsComponent } from './chats/chats.component';
 import { ChannelsComponent } from './channels/channels.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { DirektChatComponent } from './direkt-chat/direkt-chat.component';
 import { ThreadsComponent } from './threads/threads.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AuthenticationService } from './services/authentication.service';
 import { ProfileComponent } from './components/profile/profile.component';
-import { provideStorage ,getStorage} from '@angular/fire/storage';
 import { DialogAddChannelComponent } from './dialog-add-channel/dialog-add-channel.component';
 import { DateDisplayPipe } from './pipes/date-display.pipe';
 
 import { DatePipe } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-
-
-
 
 @NgModule({
   declarations: [
@@ -63,13 +54,8 @@ import { MatListModule } from '@angular/material/list';
     ProfileComponent,
     DialogAddChannelComponent,
     DateDisplayPipe,
-
-    ],
+  ],
   imports: [
-    AngularFireStorageModule,
-    AngularFireModule,
-    AngularFireAuthModule,
-   
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -83,11 +69,9 @@ import { MatListModule } from '@angular/material/list';
     ReactiveFormsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage()),
-    provideFirestore(() => getFirestore()),
+    AngularFireStorageModule,
+    AngularFireModule,
+    AngularFireAuthModule,
     HotToastModule.forRoot(),
     MatMenuModule,
     MatSliderModule,
@@ -100,15 +84,11 @@ import { MatListModule } from '@angular/material/list';
     MatListModule,
     MatInputModule,
     MatFormFieldModule,
-   
+
     MatDividerModule,
-
-
   ],
 
-  providers: [AuthenticationService,DatePipe],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-
