@@ -5,134 +5,110 @@
     <app-direkt-chat></app-direkt-chat>
   </div>
   <div class="over-chat">
-  <div class="chats-container">
+    <div class="chats-container">
+      <div class="channel-container" *ngFor="let chat of chats">
+        <div class="chat">
+          <div class="account-container">
+            <mat-icon>account_circle</mat-icon>
+            <span class="text">{{ chat.author?.displayName }}</span>
+          </div>
 
+          <div>
+            <p>{{ chat.message }}</p>
+          </div>
 
-    <div class="channel-container" *ngFor="let chat of chats">
-      <div class="chat">
-        <div class="account-container">
+          <div>
+            <img *ngIf="!!chat.fileURL" [src]="chat.fileURL" />
+          </div>
 
-          <mat-icon>account_circle</mat-icon>
-          <span class="text">{{ chat.author }}</span>
+          <div class="btn-content">
+            <button
+              class="edit-button"
+              mat-raised-button
+              (click)="showEditContainer(chat)"
+            >
+              EditChat
+            </button>
 
-        </div>
-       
-        <div>
-          <p>{{ chat.message }}</p>
+            <button
+              class="edit-button"
+              mat-raised-button
+              (click)="showThread(chat)"
+            >
+              <a> Antworten </a>
+            </button>
 
-        </div>
-     
-<div>
+            <button
+              class="btn btn-primary , deletButton"
+              mat-raised-button
+              mat-icon-button
+              mwlConfirmationPopover
+              placement="right"
+              (confirm)="removeChat(chat)"
+              (cancel)="cancelClicked = true"
+            >
+              Delete
+            </button>
+          </div>
 
-  <img *ngIf="!!chat.fileURL" [src]="chat.fileURL"/>
-</div>
-       
-
-
-        <div class="btn-content">
-          <button
-            class="edit-button"
-            mat-raised-button
-            (click)="showEditContainer(chat)"
-          >
-            EditChat
-          </button>
-
-          <button
-            class="edit-button"
-            mat-raised-button
-            (click)="showThread(chat)"
-          >
-            <a> Antworten </a>
-          </button>
-
-       
-
-          <button 
-            class="btn btn-primary , deletButton"
-            mat-raised-button
-            mat-icon-button
-            mwlConfirmationPopover
-         
-            placement="right"
-            (confirm)="removeChat(chat)"
-            (cancel)="cancelClicked = true"
-          >
-            Delete
-          </button>
-        </div>
-
-
-        <div class="edit-contain" *ngIf="chat.showAddContainer">
-          <input
-            matInput
-            class="input-message"
-            type="text"
-            [(ngModel)]="editMessage"
-          />
-          <button
-            class="edit-button2"
-            mat-raised-button
-            (click)="editChat(chat)"
-          >
-            Edit
-          </button>
+          <div class="edit-contain" *ngIf="chat.showAddContainer">
+            <input
+              matInput
+              class="input-message"
+              type="text"
+              [(ngModel)]="editMessage"
+            />
+            <button
+              class="edit-button2"
+              mat-raised-button
+              (click)="editChat(chat)"
+            >
+              Edit
+            </button>
+          </div>
         </div>
       </div>
     </div>
-   
-  </div>
 
+    <div class="form-contant">
+      <form #messageForm="ngForm">
+        <textarea
+          class="text-input"
+          type="text"
+          [(ngModel)]="chat.message"
+          name="message"
+          placeholder="Enter your Message"
+          required
+          contenteditable="true"
+          spellcheck="true"
+        ></textarea>
 
-  <div class="form-contant">
-    <form #messageForm="ngForm">
-      <textarea
-        class="text-input"
-        type="text"
-        [(ngModel)]="chat.message"
-        name="message"
-        placeholder="Enter your Message"
-        required
-        contenteditable="true"
-        spellcheck="true"
-      ></textarea>
+        <input
+          #inputField
+          type="file"
+          (change)="upload($event)"
+          accept="*.png.jpg"
+          id=""
+          hidden
+        />
+        <div class="buttons-container">
+          <button mat-raised-button (click)="inputField.click()">
+            <mat-icon>add_photo_alternate</mat-icon>
+          </button>
 
-      <input
-        #inputField
-        type="file"
-        (change)="upload($event)"
-        accept="*.png.jpg"
-        id=""
-        hidden
-      />
-<div class="buttons-container">
-      <button
-        mat-raised-button
-        (click)="inputField.click()"
-        
-      >
-        <mat-icon >add_photo_alternate</mat-icon>
-      </button>
-
-      <button
-        class="send-btn"
-        type="submit"
-        (click)="sendMessage()"
-        [class.disabled]="messageForm.invalid"
-        [disabled]="messageForm.invalid"
-      >
-      <span class="material-icons">
-        send
-        </span>
-      </button>
-
+          <button
+            class="send-btn"
+            type="submit"
+            (click)="sendMessage()"
+            [class.disabled]="messageForm.invalid"
+            [disabled]="messageForm.invalid"
+          >
+            <span class="material-icons"> send </span>
+          </button>
+        </div>
+      </form>
     </div>
-
-    </form>
   </div>
-
-</div>
-
 
   <div *ngIf="isShowingThread" class="thread-Container">
     <!-- <app-threads [thread]="threadService.currentThread"></app-threads> -->
