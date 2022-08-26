@@ -12,6 +12,14 @@ height: 100vh;
 
 }
 
+.profile-app{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .landing-welcom{
   display: flex;
   width: 100%;
@@ -21,7 +29,7 @@ height: 100vh;
  
 }
 .channels-container{
-  background-color: rgb(83, 17, 74);
+    background-color: #45043c;
   margin-top: 0px;
 }
 

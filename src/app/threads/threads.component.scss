@@ -1,80 +1,73 @@
 :host {
-    flex: 1;
-  }
-
-  form{
-   
-    display: flex;
-  
+  flex: 1;
 }
 
+form {
+  height: 100%;
+  display: flex;
+}
 
 .form-contant {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border: 2px solid #cccccc;
-    height: 144px;
-    width: 95%;
-    margin-left: 22px;
-    margin-right: auto;
-    border-radius: 8px;
-    box-shadow: 0 0px 3px #b3b3b3;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    justify-content: space-between;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 2px solid #cccccc;
+  height: 144px;
 
-
-.allThread{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-  
-
-
-.chat{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    padding: 3px;
-    margin-bottom: 2px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 1px 10px white;
-    margin-top: 10px;
-    justify-content: space-between;
-
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0px 3px #b3b3b3;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  justify-content: space-between;
 }
 
-.text{
-    font-family: monospace;
-    font-size: larger;
-    text-align: center;
-    width: 100px;
-
-    border-radius: 10px;
-
-  
+.allThread {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-
-
-.send-btn{
-   
-    border-radius: 12px;
-
-    color: #e4e4e4;
-    font-size: larger;
-    text-align: center;
+.chat {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+  margin-bottom: 2px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 1px 10px white;
+  margin-top: 10px;
+  justify-content: space-between;
 }
 
-.text-input{
-    width: 100%;
-    border: none;
-    outline: none;
-    height: 100%;
-    }
+.text {
+  font-family: monospace;
+  font-size: larger;
+  text-align: center;
+  width: 100px;
+
+  border-radius: 10px;
+}
+
+.send-btn {
+  border-radius: 12px;
+
+  text-align: center;
+  width: 35px;
+  height: 30px;
+  margin-top: 104px;
+  margin-right: 7px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.text-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 100%;
+}

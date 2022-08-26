@@ -1,53 +1,42 @@
-
-
-
-<h1>Threads</h1>
+<h1>Thread</h1>
 <div class="allThread">
-<div class="chat">
-<span class="text">{{this.thread.author}}</span>
-<p>{{this.thread.message}}</p>
-</div>
+  <div class="chat">
+    <span class="text">{{ thread.author.displayName }}</span>
+    <p>{{ this.thread.message }}</p>
+  </div>
 
-<div *ngFor="let thread of threads">
-<div  style="margin-top: 8px;"   class="chat"  >
-  <span *ngIf="authService.currentUser$ | async as user" class="text">{{ thread.author }}</span>
-  <p>{{thread.message}}</p>
-</div>
-
-</div>
-
-
+  <div *ngFor="let thread of threads">
+    <div style="margin-top: 10px" class="chat">
+      <span *ngIf="authService.currentUser$ | async as user" class="text">{{
+        thread.author.displayName
+      }}</span>
+      <p>{{ thread.message }}</p>
+    </div>
+  </div>
 </div>
 <div class="form-contant">
   <form #messageForm="ngForm">
     <textarea
-    class="text-input"
-    type="text"
-    #myArea
-
-    name="message"
-
-    placeholder="{{this.thread_placeholder}}"
-    required
-    contenteditable="true"
-    spellcheck="true"
-    contenteditable="true"
-   
-  ></textarea>
+      class="text-input"
+      type="text"
+      #myArea
+      name="message"
+      placeholder="{{ this.thread_placeholder }}"
+      required
+      contenteditable="true"
+      spellcheck="true"
+      contenteditable="true"
+    ></textarea>
 
     <button
-    class="send-btn"
-    type="submit"
+      class="send-btn"
+      type="submit"
       (click)="sendMessage(myArea.value)"
       [class.disabled]="messageForm.invalid"
-      [class.disabled]="messageForm.invalid"
-      >
-      <span class="material-icons">
-        send
-        </span>
+     
+      [disabled]="messageForm.invalid"
+    >
+      <span class="material-icons"> send </span>
     </button>
   </form>
 </div>
-
-
-

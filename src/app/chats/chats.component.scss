@@ -1,8 +1,11 @@
 .over-chat{
   display: flex;
-  width: 100%;
+  /* width: 84%; */
+  width: 83%;
   height: 100vh;
   flex-direction: column;
+  overflow: hidden;
+  overflow-y: hidden;
 }
 .edit-contain {
   display: flex;
@@ -71,7 +74,7 @@
   width: 100%;
   background-color: white;
 
-  height: calc(100vh - 200px);
+  height: calc(100vh - 230px);
   overflow-y: scroll;
 
   img{
@@ -154,7 +157,7 @@ button {
 }
 
 .thread-Container {
-  width: 50%;
+  width: 25%;
   border: unset;
   background-color: white;
   border-left: 1px solid rgba(0, 0, 0, 0.3);
@@ -166,7 +169,9 @@ button {
 .link-content {
   display: flex;
   flex-direction: column;
-  background-color: rgb(90, 23, 92);
+  background-color: #45043c;
+  width: 16%;
+  height: 100vh;
 }
 
 .buttons-container {

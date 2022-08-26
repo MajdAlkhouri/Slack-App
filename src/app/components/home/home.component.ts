@@ -31,7 +31,6 @@ import { UsersService } from 'src/app/services/users.service';
 export class HomeComponent implements OnInit {
   @ViewChild('endOfChat')
   endOfChat!: ElementRef;
-
   user$ = this.usersService.currentUserProfile$;
   myChats$ = this.chatsService.myChats$;
 

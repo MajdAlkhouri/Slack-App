@@ -6,6 +6,13 @@
     align-items: center; 
 }
 
+.contain{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
 
 .profile-image {
     position: relative;
@@ -28,13 +35,14 @@
   .form-container {
     max-width: 600px;
     width: 600px;
-    margin-top: 100px;
+   
     background-color: rgb(213, 205, 205);
     border-radius: 10px;
     }
   
   .row {
     display: flex !important;
-    gap: 16px;
+    gap: 19px;
     
   }
+

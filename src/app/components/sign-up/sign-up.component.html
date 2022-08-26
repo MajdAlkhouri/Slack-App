@@ -1,9 +1,9 @@
 
-
+<div class="conatain">
 
 <div class="form-container mat-elevation-z5">
   <h1>Sign Up a New User!</h1>
-  <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+  <form class="form-content" [formGroup]="signUpForm" (ngSubmit)="submit()">
     <mat-form-field>
       <input matInput placeholder="Name" formControlName="name" />
       <mat-error *ngIf="name?.errors?.['required']">
@@ -45,7 +45,10 @@
         Passwords should match
     </mat-error>
     <div class="center margin-top">
-      <button type="submit" mat-raised-button color="primary">Sign Up!</button>
+      <button type="submit" mat-raised-button >Sign Up!</button>
     </div>
   </form>
+</div>
+
+
 </div>

@@ -60,7 +60,7 @@ export class ThreadsComponent implements OnInit, OnChanges {
    .subscribe((changes: any) => {
      console.log('changes: ', changes);
      this.threads = changes;
-     this.thread_placeholder = this.thread.author;
+     this.thread_placeholder =  this.thread.author.displayName;
    });
   }
 
@@ -77,7 +77,8 @@ export class ThreadsComponent implements OnInit, OnChanges {
     this.send_message = text_value;
     console.log("Entered Value: ", this.send_message );
   //  this.clearChannel();
-    this.showchatt = true;
+    this.showchatt = true; //!!!
+
   }
 
   clearChannel() {
