@@ -3,14 +3,12 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Chat } from 'src/app/models/chats.class';
-import { threadId } from 'worker_threads';
 import { AuthenticationService } from '../services/authentication.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ThreadService } from '../services/thread.service';
 import { ImageUploadService } from '../services/image-upload.service';
 import { UsersService } from '../services/users.service';
 import { take } from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-chats',
@@ -66,7 +64,7 @@ export class ChatsComponent implements OnInit {
       this.imageUpload
         .uploadImage(
           this.filePath,
-          '/images' + Math.random() + this.filePath.name
+          '/images/' + Math.random() + this.filePath.name
         )
         .subscribe((downloadURL) => {
           this.filePath = undefined;

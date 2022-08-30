@@ -44,7 +44,7 @@
               mat-icon-button
               mwlConfirmationPopover
               placement="right"
-              (confirm)="removeChat(chat)"
+              (click)="removeChat(chat)"
               (cancel)="cancelClicked = true"
             >
               Delete
@@ -111,7 +111,6 @@
   </div>
 
   <div *ngIf="isShowingThread" class="thread-Container">
-
     <app-threads [thread]="currentThread"></app-threads>
   </div>
 </div>
