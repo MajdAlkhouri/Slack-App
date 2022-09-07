@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { getAuth } from 'firebase/auth';
 import { Chat } from 'src/app/models/chats.class';
+import { HomeComponent } from '../components/home/home.component';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -40,7 +41,7 @@ export class DirektChatComponent implements OnInit {
   }
 
   addDirektchat(){
-    
+    const DirektChat = this.dialog.open(HomeComponent);
   }
  
 
