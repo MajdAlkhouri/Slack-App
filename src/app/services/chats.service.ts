@@ -41,7 +41,7 @@ export class ChatsService {
     );
   }
 
-  createChat(otherUser: ProfileUser): Observable<string> {
+  createChat(otherUser: ProfileUser): Observable<string> { //string !!
     const ref = collection(this.firestore, 'chats');
     return this.usersService.currentUserProfile$.pipe(
       take(1),
