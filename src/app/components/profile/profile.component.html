@@ -1,12 +1,24 @@
-<div class="contain">
+
+
+
+<div class="contain"> 
+
+  <div class="back-container">
+
+
+  
+    <button   class="material-icons  mat-elevation-z5" routerLink="/landing/">
+      arrow_back_ios
+    </button>
+      <span>Back To Home </span>
+  </div>
+ 
   <div class="profile-container">
     <div
       class="form-container mat-elevation-z5 text-center"
       *ngIf="user$ | async as user"
     >
-      <!--
-   *ngIf="user$ | async as user"
--->
+  
 
       <h1>Update Profile</h1>
       <div class="profile-image">

@@ -41,7 +41,8 @@ export class DirektChatComponent implements OnInit {
   }
 
   addDirektchat(){
-    const DirektChat = this.dialog.open(HomeComponent);
+  //  const DirektChat = this.dialog.open(HomeComponent);
+  this.router.navigate(['/home']);
   }
  
 

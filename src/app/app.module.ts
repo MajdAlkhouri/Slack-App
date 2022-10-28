@@ -35,7 +35,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DialogAddChannelComponent } from './dialog-add-channel/dialog-add-channel.component';
 import { DateDisplayPipe } from './pipes/date-display.pipe';
-
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { DatePipe } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
@@ -68,7 +69,9 @@ import { MatListModule } from '@angular/material/list';
     MatToolbarModule,
     ReactiveFormsModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
+   AngularFireModule.initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
     AngularFireStorageModule,
     AngularFireModule,
     AngularFireAuthModule,

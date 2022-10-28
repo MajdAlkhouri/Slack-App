@@ -1,5 +1,15 @@
-test
+
 <div class="container">
+
+
+  <div class="channels-container">
+    <app-channels></app-channels>
+
+    <app-direkt-chat> 
+
+      
+    </app-direkt-chat>
+
     <div class="chat-list mat-elevation-z5">
       <div class="search-input">
         <mat-form-field>
@@ -40,6 +50,13 @@ test
         </mat-list-option>
       </mat-selection-list>
     </div>
+
+
+  </div>
+
+   
+
+    
     <div class="messages mat-elevation-z5">
       <div
         class="messages-header"
@@ -63,7 +80,7 @@ test
           <ng-container *ngIf="messages$ | async as messages">
             <div
               class="chat-bubble-container"
-              [ngClass]="{ sender: message.senderId === currentUser.uid }"
+              [ngClass]="{ 'sender': message.senderId === currentUser.uid }"
               *ngFor="let message of messages"
             >
               <div class="chat-bubble">
@@ -78,10 +95,13 @@ test
         <div #endOfChat></div>
       </div>
       <div class="input-area">
-        <mat-form-field appearance="outline">
+        <mat-form-field   appearance="outline" >
           <input
-            matInput
-            placeholder="Enter your message..."
+          placeholder="Enter your message..."
+         
+          matInput
+         
+        
             [formControl]="messageControl"
             (keydown.enter)="sendMessage()"
           />

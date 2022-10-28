@@ -1,19 +1,6 @@
 <div class="direkt-container">
   <div class="direkt-titel">
-  <div>
-    <button *ngIf="showDirektChat" class="arrow-button" (click)="HideChannels()" >
-      <span class="material-icons">
-        arrow_drop_down
-        </span>
-    </button>
-    
-    <button *ngIf="showButton" class="arrow-button"  (click)="ShowChannels()">
-      <span   class="material-icons">
-        arrow_right
-        </span>
-      </button>
-      
-    </div>
+
 
 <h1>Direkt Messages</h1>
 
@@ -24,16 +11,9 @@
 
 <div *ngIf="showDirektChat">
 <ng-container *ngIf="authService.currentUser$ | async as user">
-    <div class="user">
-      <span><mat-icon>message</mat-icon></span>     
-      <span>{{ user.displayName }}</span>
+ 
 
-      <span> {{ chat.author }} </span>
-    </div>
 
-    <div class="para">
-      <span>  Nachricht an  </span>
-  </div>
 
 </ng-container>
 

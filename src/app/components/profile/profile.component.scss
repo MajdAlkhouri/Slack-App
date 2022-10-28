@@ -1,48 +1,72 @@
-.profile-container{
-    width: 100%;
-   
-    display:flex;
-    justify-content: center;
-    align-items: center; 
+.profile-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.contain{
+.contain {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 75px;
+  flex-direction: column;
+}
 
+.back-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+
+  span {
+    font-family: 'Circular-Loom';
+    margin-left: 15px;
+    font-size: x-large;
+  }
+
+  button {
+    color: black;
+    background-color: #d5cdcd;
+    cursor: pointer;
+    width: 33px;
+    border-radius: 10px;
+    border: none;
+    &:hover {
+      transform: translate(0rem, -0.1rem);
+    }
+  }
 }
 
 .profile-image {
-    position: relative;
-    width: 120px;
-    margin: auto;
-  }
-  
-  .profile-image > img {
-    border-radius: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-  
-  .profile-image > button {
-    position: absolute;
-    bottom: 10px;
-    right: 0;
-  }
-  
-  .form-container {
-    max-width: 600px;
-    width: 600px;
-   
-    background-color: rgb(213, 205, 205);
-    border-radius: 10px;
-    }
-  
-  .row {
-    display: flex !important;
-    gap: 19px;
-    
-  }
+  position: relative;
+  width: 120px;
+  margin: auto;
+}
 
+.profile-image > img {
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-image > button {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+
+.form-container {
+  max-width: 600px;
+  width: 600px;
+
+  background-color: rgb(213, 205, 205);
+  border-radius: 10px;
+}
+
+.row {
+  display: flex !important;
+  gap: 19px;
+}
