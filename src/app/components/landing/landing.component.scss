@@ -6,6 +6,7 @@
   display: flex;
   background-color: rgba(0, 0, 0, 0.1);
   height: 93vh;
+  position: fixed;
 }
 
 .profile-app {
@@ -148,15 +149,16 @@ mat-form-field {
   perspective: 3000px;
   width: 50%;
   position: absolute;
-  left: 50%;
-  top:50%;
+  left: 60%;
+  top: 50%;
   transform: translate(-50%, -50%);
   transform-style: preserve-3d;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction:column ;
-  margin-left: 60px;
+  flex-direction: column;
+
+  position: fixed;
 }
 
 .logos{

@@ -53,15 +53,19 @@ form {
 }
 
 .send-btn {
-  border-radius: 12px;
-
+  border-radius: 50%;
+  display: flex;
+  width: 37px;
+  background-color: #45043c;
   text-align: center;
-  width: 35px;
-  height: 30px;
-  margin-top: 104px;
+  align-items: center;
+  color: white;
+  box-shadow: 0 0px 7px black;
+  height: 37px;
+  cursor: pointer;
+  margin-top: 100px;
   margin-right: 7px;
-  border: none;
-  outline: none;
+ border: none;
   cursor: pointer;
 }
 

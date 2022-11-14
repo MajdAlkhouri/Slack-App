@@ -7,10 +7,10 @@
 
 
   
-    <button   class="material-icons  mat-elevation-z5" routerLink="/landing/">
+    <button   class="material-icons  mat-elevation-z5 "  routerLink="/landing/">
       arrow_back_ios
     </button>
-      <span>Back To Home </span>
+      <span>Back Home </span>
   </div>
  
   <div class="profile-container">
@@ -23,12 +23,12 @@
       <h1>Update Profile</h1>
       <div class="profile-image">
         <img
-          width="120"
-          height="120"
+          width="160"
+          height="160"
           class="margin-top mat-elevation-z1"
           [src]="user.photoURL ?? 'assets/images/Profile.jpg'"
         />
-        <button mat-mini-fab (click)="inputField.click()">
+        <button class="edit-button"  mat-mini-fab (click)="inputField.click()">
           <mat-icon>edit</mat-icon>
         </button>
       </div>
@@ -40,7 +40,7 @@
       />
 
       <form
-        class="margin-top"
+
         [formGroup]="profileForm"
         (ngSubmit)="saveProfile()"
       >
@@ -92,9 +92,9 @@
 
         <button
           type="submit"
-          class="margin-top"
+          class="save-button"
           mat-raised-button
-          color="primary"
+          color="d8d4d4"
         >
           Save
         </button>

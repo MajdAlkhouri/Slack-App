@@ -48,9 +48,10 @@
 
 
 .btn-content {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 20px;
 }
 
 .account-container{
@@ -91,11 +92,19 @@
   border: none;
   outline: none;
   height: 100%;
+  resize: none;
 }
 
 .send-btn {
-  border: none;
-  outline: none;
+  border-radius: 50%;
+  display: flex;
+  width: 37px;
+  background-color: #45043c;
+  text-align: center;
+  align-items: center;
+  color: white;
+  box-shadow: 0 0px 7px black;
+  height: 37px;
   cursor: pointer;
 }
 
@@ -143,12 +152,10 @@
 }
 
 input {
-  margin: 16px;
+  margin: 18px;
 }
 
-button {
-  width: 50px;
-}
+
 
 .thread-Container {
   width: 30%;
@@ -173,14 +180,44 @@ button {
   justify-content: space-between;
   width: 97%;
   margin-left: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
+
 
   button {
-    border-radius: 100%;
+    border-radius: 50%;
 
     &:first-child {
-  
-      background-color: #cccccc;
+      box-sizing: border-box;
+      border-radius: 50%;
+      position: relative;
+      -webkit-user-select: none;
+      user-select: none;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      -webkit-tap-highlight-color: transparent;
+      display: inline-block;
+      white-space: nowrap;
+      text-decoration: none;
+      vertical-align: baseline;
+      text-align: center;
+      margin: 0;
+      height: 37px;
+      text-align: center;
+      width: 37px !important;
+      min-width: 37px !important; 
+      line-height: 36px;
+      padding: 0 16px;
+ 
+      overflow: visible;
+      transform: translate3d(0, 0, 0);
+      transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
     }
   }
 }
+
+
+

@@ -4,7 +4,7 @@
   <h1>Login</h1>
   <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submit()">
       <mat-form-field>
-          <input matInput placeholder="Email address" formControlName="email" />
+          <input class="input-login" matInput placeholder="Email address" formControlName="email" />
           <mat-error *ngIf="email?.errors?.['required']">
               Email is required
           </mat-error>
@@ -13,13 +13,13 @@
           </mat-error>
       </mat-form-field>
       <mat-form-field>
-          <input matInput placeholder="Password" formControlName="password" type="password" />
+          <input class="input-login" matInput placeholder="Password" formControlName="password" type="password" />
           <mat-error *ngIf="password?.errors?.['required']">
               Password is required
           </mat-error>
       </mat-form-field>
       <div class="center margin-top">
-          <button mat-raised-button  type="submit">
+          <button  mat-raised-button  type="submit">
               Login
           </button>
       </div>

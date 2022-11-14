@@ -46,7 +46,10 @@ mat-toolbar-row {
 
 .profile-image-toolbar {
   border-radius: 100%;
-  margin-right: 8px;
+  margin-right: 12px;
+  width: 55px;
+  height: 55px;
+  box-shadow: 0 0px 9px rgb(255, 255, 255);
 }
 .menu-items {
   list-style-type: none;
