@@ -5,6 +5,7 @@ import { getAuth } from 'firebase/auth';
 import { Chat } from 'src/app/models/chats.class';
 import { HomeComponent } from '../components/home/home.component';
 import { AuthenticationService } from '../services/authentication.service';
+import { ChatsService } from '../services/chats.service';
 
 @Component({
   selector: 'app-direkt-chat',
@@ -15,6 +16,8 @@ export class DirektChatComponent implements OnInit {
 
   showDirektChat : boolean = false;
   showButton: boolean = true;
+  myChats$ = this.chatsService.myChats$;
+
 
   chat = new Chat(); 
 
@@ -23,25 +26,31 @@ export class DirektChatComponent implements OnInit {
   constructor(
     public authService: AuthenticationService,
     public router: Router,
-    public dialog: MatDialog
-  ) { }
+    public dialog: MatDialog,
+    private chatsService: ChatsService) 
+   { }
 
   ngOnInit(): void {
   
   } 
 
-  ShowChannels(){
+
+  
+
+  showDirektchat(){
     this.showDirektChat = !this.showDirektChat
     this.showButton = !this.showDirektChat
+    this.myChats$
   }
 
-  HideChannels(){
+  HideChats(){
     this.showDirektChat = !this.showDirektChat
     this.showButton = !this.showDirektChat
+    this.myChats$
   }
 
   addDirektchat(){
-  //  const DirektChat = this.dialog.open(HomeComponent);
+  
   this.router.navigate(['/home']);
   }
  

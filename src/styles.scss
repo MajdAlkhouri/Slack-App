@@ -66,6 +66,11 @@ font-size: x-large;
   margin-bottom: 50px;
 }
 
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0.4375em 0 !important;
+  margin-left: 30px !important;
+}
+
 .mat-form-field-appearance-legacy .mat-form-field-label {
 
   color: black;

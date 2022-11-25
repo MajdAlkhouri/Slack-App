@@ -1,7 +1,20 @@
 <div class="direkt-container">
   <div class="direkt-titel">
 
-
+    <div>
+      <button *ngIf="showDirektChat" class="arrow-button" (click)="showDirektchat()" >
+        <span class="material-icons">
+          arrow_drop_down
+          </span>
+      </button>
+      
+      <button *ngIf="showButton" class="arrow-button"  (click)="HideChats()">
+        <span   class="material-icons">
+          arrow_right
+          </span>
+        </button>
+        
+      </div>
 <h1>Direkt Messages</h1>
 
 <button class="button"   (click)="addDirektchat()" >
@@ -10,12 +23,29 @@
 </div>
 
 <div *ngIf="showDirektChat">
-<ng-container *ngIf="authService.currentUser$ | async as user">
+<ng-container >
+
  
 
-
-
 </ng-container>
-
+<mat-selection-list [multiple]="false" >
+  <mat-divider></mat-divider>
+  <mat-list-option *ngFor="let chat of myChats$ | async" [value]="chat.id">
+    <img
+      matListAvatar
+      [src]="
+        chat.chatPic ? chat.chatPic : 'assets/images/image-placeholder.png'
+      "
+    />
+    <p mat-line class="chat-title">
+      <span class="chat-name">{{ chat.chatName }}</span
+      ><span class="chat-date">{{
+        chat.lastMessageDate | dateDisplay
+      }}</span>
+    </p>
+    <p mat-line>{{ chat.lastMessage }}</p>
+    <mat-divider></mat-divider>
+  </mat-list-option>
+</mat-selection-list>
 </div>
 </div>

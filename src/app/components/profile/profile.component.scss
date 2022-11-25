@@ -75,6 +75,14 @@
 .row {
   display: flex !important;
   gap: 19px;
+
+  input{
+    margin-left: 20px;
+  }
+
+  span{
+    margin-left: 20px; 
+  }
 }
 
 .save-button{
