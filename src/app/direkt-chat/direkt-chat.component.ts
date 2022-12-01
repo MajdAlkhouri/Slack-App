@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { getAuth } from 'firebase/auth';
@@ -17,6 +18,7 @@ export class DirektChatComponent implements OnInit {
   showDirektChat : boolean = false;
   showButton: boolean = true;
   myChats$ = this.chatsService.myChats$;
+  
 
 
   chat = new Chat(); 
@@ -27,7 +29,9 @@ export class DirektChatComponent implements OnInit {
     public authService: AuthenticationService,
     public router: Router,
     public dialog: MatDialog,
-    private chatsService: ChatsService) 
+    private chatsService: ChatsService,
+    //public direktchats : HomeComponent,
+    ) 
    { }
 
   ngOnInit(): void {
@@ -35,7 +39,6 @@ export class DirektChatComponent implements OnInit {
   } 
 
 
-  
 
   showDirektchat(){
     this.showDirektChat = !this.showDirektChat
@@ -47,6 +50,8 @@ export class DirektChatComponent implements OnInit {
     this.showDirektChat = !this.showDirektChat
     this.showButton = !this.showDirektChat
     this.myChats$
+    document.getElementById("direkt-chats").style.display = "hidden";
+    console.log(123); 
   }
 
   addDirektchat(){

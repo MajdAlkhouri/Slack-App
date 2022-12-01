@@ -30,7 +30,8 @@
           </mat-option>
         </mat-autocomplete>
       </div>
-      <!--
+    
+      <div  id="direkt-chats"> 
       <mat-selection-list [multiple]="false" [formControl]="chatListControl">
         <mat-divider></mat-divider>
         <mat-list-option *ngFor="let chat of myChats$ | async" [value]="chat.id">
@@ -50,7 +51,9 @@
           <mat-divider></mat-divider>
         </mat-list-option>
       </mat-selection-list>
-      -->
+     
+
+    </div>
 
     </div>
 
